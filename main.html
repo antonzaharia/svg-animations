@@ -4,12 +4,14 @@
 <head>
     <title>SVG Animations</title>
     <style>
+        /* Triangles Button */
         :root {
             --light-color: #80e9ff;
             --dark-color: #635bff;
         }
         svg {
             cursor: pointer;
+            display: block;
         }
         #dark {
             fill: var(--dark-color);
@@ -34,6 +36,36 @@
         svg:hover #dark2 {
             transform: translateX(0%);
         }
+        /* Phone animation */
+        #skeleton {
+            animation: fadeInUp 1s;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        #bolt g {
+            opacity: 0;
+            animation: dropIn 8s ease forwards infinite;
+            animation-delay: calc(var(--order) * 200ms);
+         }
+        @keyframes dropIn {
+            20% {
+                opacity: 0;
+                transform: translateY(-20%);
+            }
+            30%, 100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
     </style>
 </head>
 
@@ -51,6 +83,7 @@
         </g>
     </g>
 </svg>
+<span>Hover and click the triangles</span>
 
 <svg width="728" viewBox="0 0 169 228" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="phone">
